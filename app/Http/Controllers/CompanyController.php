@@ -109,9 +109,9 @@ class CompanyController extends Controller
                 'updated_by' => Auth::id(),
                 'updated_at' => now(),
             ]);
-            return redirect()->route('company.show', $company)->with('success', 'Record Updated');
+            return redirect()->route('company.show',['company' => $company])->with('success', 'Record Updated');
         } else {
-            return redirect()->route('company.edit', $company)->with('error', 'Record Fail to Update');
+            return redirect()->route('company.edit', ['company' => $company])->with('error', 'Record Fail to Update');
         }
     }
 
